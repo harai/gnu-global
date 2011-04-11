@@ -30,7 +30,7 @@
  DAMAGE. 
  =========================================================================*/
 
-/* $Id: version-cscope.h,v 1.1 2011/03/15 03:29:56 shigio Exp $ */
+/* $Id: version-cscope.h,v 1.2 2011/04/11 04:23:11 shigio Exp $ */
 
 /*	cscope - interactive C symbol cross-reference
  *
@@ -41,7 +41,7 @@
 #ifndef CSCOPE_VERSION_H
 #define CSCOPE_VERSION_H
 
-#define	FILEVERSION	16	/* Initial Open Source and Linux Port */
-#define	FIXVERSION	".0a"	/* feature and bug fix version */
+#define	FILEVERSION	15	/* Initial Open Source and Linux Port */
+#define	FIXVERSION	".7a"	/* feature and bug fix version */
 
 #endif /* CSCOPE_VERSION_H */

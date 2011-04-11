@@ -67,7 +67,7 @@
 #define LINEFLAG "+%s"	/* default: used by vi and emacs */
 #define TMPDIR	"/tmp"
 
-static char const rcsid[] = "$Id: gtags-cscope.c,v 1.17 2011/03/15 03:29:56 shigio Exp $";
+static char const rcsid[] = "$Id: gtags-cscope.c,v 1.18 2011/04/11 04:23:11 shigio Exp $";
 
 char	*editor, *shell, *lineflag;	/* environment variables */
 char	*home;			/* Home directory */
@@ -145,7 +145,7 @@ main(int argc, char **argv)
 #if CCS
 	    displayversion = YES;
 #else
-	    fprintf(stderr, "%s: %s (based on version %d%s)\n", argv0, get_version(),
+	    fprintf(stderr, "%s: %s (based on cscope version %d%s)\n", argv0, get_version(),
 		    FILEVERSION, FIXVERSION);
 	    myexit(0);
 #endif
