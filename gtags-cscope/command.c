@@ -47,7 +47,7 @@
 #endif
 #include <ctype.h>
 
-static char const rcsid[] = "$Id: command.c,v 1.2 2011/04/11 04:29:10 shigio Exp $";
+static char const rcsid[] = "$Id: command.c,v 1.3 2011/04/14 05:11:11 shigio Exp $";
 
 
 int	selecting;
@@ -420,6 +420,7 @@ cscope: cannot open pipe to shell command: %s\n", newpat);
 	    clearprompt();
 	    return(NO);
 	}
+	curdispline = 0;
 	return(YES);
 	break;
 #if defined(KEY_RESIZE) && !defined(__DJGPP__)
