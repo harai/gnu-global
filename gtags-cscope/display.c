@@ -62,7 +62,7 @@
 typedef jmp_buf sigjmp_buf;
 #endif
 
-static char const rcsid[] = "$Id: display.c,v 1.2 2011/04/11 04:23:11 shigio Exp $";
+static char const rcsid[] = "$Id: display.c,v 1.3 2011/05/06 15:20:36 h-iwamoto Exp $";
 
 int	booklen;		/* OGS book name display field length */
 int	*displine;		/* screen line of displayed reference */
@@ -412,7 +412,6 @@ BOOL
 search(void)
 {
 	char	*findresult = NULL;	/* find function output */
-	BOOL	funcexist = YES;		/* find "function" error */
 	sighandler_t savesig;		/* old value of signal */
 	FP	f;			/* searching function */
 	int	c;

@@ -67,7 +67,7 @@
 #define LINEFLAG "+%s"	/* default: used by vi and emacs */
 #define TMPDIR	"/tmp"
 
-static char const rcsid[] = "$Id: gtags-cscope.c,v 1.18 2011/04/11 04:23:11 shigio Exp $";
+static char const rcsid[] = "$Id: gtags-cscope.c,v 1.19 2011/05/06 15:20:39 h-iwamoto Exp $";
 
 char	*editor, *shell, *lineflag;	/* environment variables */
 char	*home;			/* Home directory */
@@ -119,7 +119,6 @@ sigwinch_handler(int sig, siginfo_t *info, void *unused)
 int
 main(int argc, char **argv)
 {
-    char path[PATHLEN + 1];	/* file path */
     char *s;
     int c;
     pid_t pid;
