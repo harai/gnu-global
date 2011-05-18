@@ -35,6 +35,15 @@
  *	display functions
  */
 
+#ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN
+#define __OBJC__	/* to make BOOL a define rather than typedef */
+#include <windows.h>
+#undef BOOL
+#undef NOERROR
+#undef __OBJC__
+#endif
+
 #include "global-cscope.h"
 #include "build.h"
 #include "alloc.h"
@@ -62,7 +71,12 @@
 typedef jmp_buf sigjmp_buf;
 #endif
 
-static char const rcsid[] = "$Id: display.c,v 1.3 2011/05/06 15:20:36 h-iwamoto Exp $";
+/* jmh: I'll just take the easy way out and hope for the best... */
+#if defined(__DJGPP__) && __DJGPP__ == 2 && __DJGPP_MINOR__ < 4
+#define vsnprintf(one,two,three,four) vsprintf(one,three,four)
+#endif
+
+static char const rcsid[] = "$Id: display.c,v 1.4 2011/05/18 07:54:28 shigio Exp $";
 
 int	booklen;		/* OGS book name display field length */
 int	*displine;		/* screen line of displayed reference */
@@ -415,11 +429,21 @@ search(void)
 	sighandler_t savesig;		/* old value of signal */
 	FP	f;			/* searching function */
 	int	c;
+#ifdef _WIN32
+	DWORD	savemode;
+#endif
 	
 	/* open the references found file for writing */
 	if (writerefsfound() == NO) {
 		return(NO);
 	}
+#ifdef _WIN32
+	/* close it again, otherwise the redirection won't work */
+	(void) fclose(refsfound);
+	/* remember the current console mode, since the system */
+	/* call resets it, thus preventing ctrl(c) from working */
+	GetConsoleMode(GetStdHandle(STD_INPUT_HANDLE), &savemode);
+#endif
 	/* find the pattern - stop on an interrupt */
 	if (linemode == NO) {
 		postmsg("Searching ...");
@@ -432,9 +456,13 @@ search(void)
 	}
 	signal(SIGINT, savesig);
 
+#ifdef _WIN32
+	SetConsoleMode(GetStdHandle(STD_INPUT_HANDLE), savemode);
+#else
 	/* reopen the references found file for reading */
 	(void) fclose(refsfound);
-	if ((refsfound = myfopen(temp1, "rb")) == NULL) {
+#endif
+	if ((refsfound = myfopen(temp1, "r")) == NULL) {
 		cannotopen(temp1);
 		return(NO);
 	}
@@ -614,17 +642,15 @@ void
 postfatal(const char *msg, ...)
 {
 	va_list ap;
-	char errbuf[MSGLEN];
 
-	va_start(ap, msg);
-	vsnprintf(errbuf, sizeof(errbuf), msg, ap);
 	/* restore the terminal to its original mode */
 	if (incurses == YES) {
 		exitcurses();
 	}
 
 	/* display fatal error messages */
-	fprintf(stderr,"%s",errbuf);
+	va_start(ap, msg);
+	vfprintf(stderr,msg,ap);
 
 	/* shut down */
 	myexit(1);
