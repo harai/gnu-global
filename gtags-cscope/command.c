@@ -49,7 +49,7 @@
 #endif
 #include <ctype.h>
 
-static char const rcsid[] = "$Id: command.c,v 1.4 2011/06/20 04:29:29 shigio Exp $";
+static char const rcsid[] = "$Id: command.c,v 1.5 2011/06/20 07:24:33 shigio Exp $";
 
 
 int	selecting;
@@ -757,6 +757,7 @@ changestring(void)
     for (i = 0; 
 	 fscanf(refsfound, "%" PATHLEN_STR "s%*s%" NUMLEN_STR "s%*[^\n]", newfile, linenum) == 2;
 	 ++i) {
+	strcpy(newfile, decode_path(newfile));
 	/* see if the line is to be changed */
 	if (change[i] == YES) {
 	    anymarked = YES;
