@@ -41,8 +41,9 @@
 #else
 #include <curses.h>
 #endif
+#include "pathconvert.h"
 
-static char const rcsid[] = "$Id: edit.c,v 1.1 2011/03/15 03:29:56 shigio Exp $";
+static char const rcsid[] = "$Id: edit.c,v 1.2 2011/06/20 04:29:29 shigio Exp $";
 
 /* edit this displayed reference */
 
@@ -61,7 +62,7 @@ editref(int i)
 	
 	/* get the file name and line number */
 	if (fscanf(refsfound, "%" PATHLEN_STR "s%*s%" NUMLEN_STR "s", file, linenum) == 2) {
-		edit(file, linenum);	/* edit it */
+		edit(decode_path(file), linenum);	/* edit it */
 	}
 	seekline(topline);	/* restore the line pointer */
 }
@@ -84,7 +85,7 @@ editall(void)
 	
 	/* get each file name and line number */
 	while (fscanf(refsfound, "%" PATHLEN_STR "s%*s%" NUMLEN_STR "s%*[^\n]", file, linenum) == 2) {
-		edit(file, linenum);	/* edit it */
+		edit(decode_path(file), linenum);	/* edit it */
 		if (editallprompt == YES) {
 			addstr("Type ^D to stop editing all lines, or any other character to continue: ");
 			if ((c = mygetch()) == EOF || c == ctrl('D') || c == ctrl('Z')) {
