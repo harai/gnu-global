@@ -48,7 +48,7 @@
 */
 #define MAXHELP	50	/* maximum number of help strings */
 
-static char const rcsid[] = "$Id: help.c,v 1.1 2011/03/15 03:29:56 shigio Exp $";
+static char const rcsid[] = "$Id: help.c,v 1.2 2011/08/08 11:21:44 shigio Exp $";
 
 void
 help(void)
@@ -82,6 +82,7 @@ help(void)
 		*tp++ = "<\t\tRead lines from a file.\n";
 		*tp++ = "^\t\tFilter all lines through a shell command.\n";
 		*tp++ = "|\t\tPipe all lines to a shell command.\n";
+		*tp++ = "^G\t\tRead lines from the result of the execution of global(1).\n";
 		if (!mouse) {
 			*tp++ = "\nAt any time you can use these single-character commands:\n\n";
 			*tp++ = "TAB\t\tSwap positions between input and output areas.\n";
