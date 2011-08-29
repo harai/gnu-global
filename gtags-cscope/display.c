@@ -76,7 +76,7 @@ typedef jmp_buf sigjmp_buf;
 #define vsnprintf(one,two,three,four) vsprintf(one,three,four)
 #endif
 
-static char const rcsid[] = "$Id: display.c,v 1.5 2011/08/25 12:07:10 shigio Exp $";
+static char const rcsid[] = "$Id: display.c,v 1.6 2011/08/29 03:47:13 shigio Exp $";
 
 int	booklen;		/* OGS book name display field length */
 int	*displine;		/* screen line of displayed reference */
@@ -116,7 +116,7 @@ static	struct	{		/* text of input fields */
 	char	*text2;
 	FP	findfcn;
 } fields[FIELDS + 1] = {	/* samuel has a search that is not part of the cscope display */
-	{"Find this", "C symbol",			findsymbol},
+	{"Find this", "symbol",				findsymbol},
 	{"Find this", "global definition",		finddef},
 	{"Find", "functions called by this function (N/A)",	findcalledby},
 	{"Find", "locations calling this function",	findcalling},

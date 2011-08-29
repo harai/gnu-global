@@ -49,7 +49,7 @@
 #endif
 #include <ctype.h>
 
-static char const rcsid[] = "$Id: command.c,v 1.5 2011/06/20 07:24:33 shigio Exp $";
+static char const rcsid[] = "$Id: command.c,v 1.6 2011/08/29 03:47:13 shigio Exp $";
 
 
 int	selecting;
@@ -67,7 +67,7 @@ char	Pattern[PATLEN + 1];	/* symbol or text pattern */
 static	char	appendprompt[] = "Append to file: ";
 static	char	pipeprompt[] = "Pipe to shell command: ";
 static	char	readprompt[] = "Read from file: ";
-static	char	globalprompt[] = "Read from: global --result=cscope ";
+static	char	globalprompt[] = "Read from: global ";
 static	char	globalprefix[] = "global --encode-path=\" \t\" --result=cscope ";
 static	char	globalcommand[MAXFILLEN];
 static	char	toprompt[] = "To: ";
