@@ -77,7 +77,7 @@
 #define LINEFLAG "+%s"	/* default: used by vi and emacs */
 #define TMPDIR	"/tmp"
 
-static char const rcsid[] = "$Id: gtags-cscope.c,v 1.20 2011/05/18 07:54:28 shigio Exp $";
+static char const rcsid[] = "$Id: gtags-cscope.c,v 1.21 2011/08/29 03:46:44 shigio Exp $";
 
 char	*editor, *shell, *lineflag;	/* environment variables */
 char	*home;			/* Home directory */
@@ -92,6 +92,7 @@ BOOL	incurses = NO;		/* in curses */
 BOOL	isuptodate;		/* consider the crossref up-to-date */
 BOOL	linemode = NO;		/* use line oriented user interface */
 BOOL	verbosemode = NO;	/* print extra information on line mode */
+BOOL	absolutepath = NO;	/* print absolute path name */
 BOOL	ogs;			/* display OGS book and subsystem names */
 char	*prependpath;		/* prepend path to file names */
 FILE	*refsfound;		/* references found file */
@@ -184,6 +185,9 @@ gtags-cscope: pattern too long, cannot be > %d characters\n", PATLEN);
 		--argc;
 		++argv;
 		goto lastarg;
+	    case 'a':	/* absolute path name */
+		absolutepath = YES;
+		break;
 	    case 'b':	/* only build the cross-reference */
 		buildonly = YES;
 		linemode  = YES;

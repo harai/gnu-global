@@ -30,7 +30,7 @@
  DAMAGE. 
  =========================================================================*/
 
-/* $Id: global-cscope.h,v 1.1 2011/03/15 03:29:56 shigio Exp $ */
+/* $Id: global-cscope.h,v 1.2 2011/08/29 03:46:44 shigio Exp $ */
 
 /*	cscope - interactive C symbol cross-reference
  *
@@ -214,6 +214,7 @@ extern	BOOL	editallprompt;	/* prompt between editing files */
 extern	BOOL	incurses;	/* in curses */
 extern	BOOL	isuptodate;	/* consider the crossref up-to-date */
 extern	BOOL	linemode;	/* use line oriented user interface */
+extern	BOOL	absolutepath;	/* print absolute path name */
 extern	BOOL	verbosemode;	/* print extra information on line mode */
 extern	BOOL	ogs;		/* display OGS book and subsystem names */
 extern	char	*prependpath;	/* prepend path to file names */
