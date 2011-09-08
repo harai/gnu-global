@@ -30,7 +30,7 @@
  DAMAGE. 
  =========================================================================*/
 
-/* $Id: global-cscope.h,v 1.2 2011/08/29 03:46:44 shigio Exp $ */
+/* $Id: global-cscope.h,v 1.3 2011/09/08 13:52:15 shigio Exp $ */
 
 /*	cscope - interactive C symbol cross-reference
  *
@@ -203,6 +203,8 @@ struct cmd {			/* command history struct */
 
 /* main.c global data */
 extern	char	*editor, *home, *shell, *lineflag;	/* environment variables */
+extern	char	*global_command;			/* "global" by default */
+extern	char	*gtags_command;				/* "gtags" by default */
 extern	char	*home;		/* Home directory */
 extern 	BOOL	lineflagafterfile;
 extern	char	*argv0;		/* command name */
