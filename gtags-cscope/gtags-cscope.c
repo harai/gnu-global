@@ -77,7 +77,7 @@
 #define LINEFLAG "+%s"	/* default: used by vi and emacs */
 #define TMPDIR	"/tmp"
 
-static char const rcsid[] = "$Id: gtags-cscope.c,v 1.22 2011/09/08 13:52:15 shigio Exp $";
+static char const rcsid[] = "$Id: gtags-cscope.c,v 1.23 2011/10/07 01:07:29 shigio Exp $";
 
 char	*editor, *shell, *lineflag;	/* environment variables */
 char	*global_command;	/* "global" by default */
@@ -214,7 +214,6 @@ gtags-cscope: pattern too long, cannot be > %d characters\n", PATLEN);
 		/* FALLTHROUGH */
 	    case 'l':
 		linemode = YES;
-		isuptodate = YES;
 		break;
 	    case 'v':
 		verbosemode = YES;
@@ -393,7 +392,9 @@ cscope: Could not create private temp dir %s\n",
 
     /* if the cross-reference is to be considered up-to-date */
     if (isuptodate == YES) {
-	if (execute(global_command, global_command, "-p", NULL) != 0) {
+	char com[80];
+	snprintf(com, sizeof(com), "%s -p >/dev/null", global_command);
+	if (system(com) != 0) {
 	    postfatal("gtags-cscope: GTAGS not found. Please invoke again without -d option.\n");
             /* NOTREACHED */
 	}
