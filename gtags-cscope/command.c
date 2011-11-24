@@ -49,7 +49,7 @@
 #endif
 #include <ctype.h>
 
-static char const rcsid[] = "$Id: command.c,v 1.7 2011/09/08 13:52:13 shigio Exp $";
+static char const rcsid[] = "$Id: command.c,v 1.8 2011/11/24 23:51:19 shigio Exp $";
 
 
 int	selecting;
@@ -107,10 +107,9 @@ command(int commandc)
 	    postmsg("The -d option prevents rebuilding the symbol database");
 	    return(NO);
 	}
-	exitcurses();
+	postmsg("Rebuilding cross-reference...");
 	rebuild();
-	entercurses();
-	clearmsg();		/* clear any previous message */
+	postmsg("");
 	totallines = 0;
 	disprefs = 0;	
 	topline = nextline = 1;
