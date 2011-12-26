@@ -77,7 +77,7 @@
 #define LINEFLAG "+%s"	/* default: used by vi and emacs */
 #define TMPDIR	"/tmp"
 
-static char const rcsid[] = "$Id: gtags-cscope.c,v 1.23 2011/10/07 01:07:29 shigio Exp $";
+static char const rcsid[] = "$Id: gtags-cscope.c,v 1.24 2011/12/26 05:41:03 shigio Exp $";
 
 char	*editor, *shell, *lineflag;	/* environment variables */
 char	*global_command;	/* "global" by default */
@@ -410,6 +410,7 @@ cscope: Could not create private temp dir %s\n",
 	    myexit(0);
 	}
 	set_env("GTAGSROOT", getcwd(buf, sizeof(buf)));
+	set_env("GTAGSDBPATH", getcwd(buf, sizeof(buf)));
     }
 
     /* opendatabase(); */
