@@ -41,9 +41,10 @@
 #else
 #include <curses.h>
 #endif
+#include "path.h"
 #include "pathconvert.h"
 
-static char const rcsid[] = "$Id: edit.c,v 1.3 2011/10/18 03:45:15 shigio Exp $";
+static char const rcsid[] = "$Id: edit.c,v 1.4 2012/01/24 13:35:52 shigio Exp $";
 
 /* edit this displayed reference */
 
@@ -115,14 +116,14 @@ edit(char *file, char *linenum)
 		
 		/* get it to pause after displaying a file smaller than the screen
 		   length */
-		(void) execute(editor, editor, plusnum, file, "/dev/null", NULL);
+		(void) execute(editor, editor, plusnum, file, NULL_DEVICE, NULL);
 	}
 	else if (lineflagafterfile) {
-		(void) snprintf(com, sizeof(com), "%s %s '%s'", editor, file, plusnum);
+		(void) snprintf(com, sizeof(com), "%s %s \"%s\"", editor, file, plusnum);
 		system(com);
 	}
 	else {
-		(void) snprintf(com, sizeof(com), "%s %s '%s'", editor, plusnum, file);
+		(void) snprintf(com, sizeof(com), "%s %s \"%s\"", editor, plusnum, file);
 		system(com);
 	}
 	clear();	/* redisplay screen */

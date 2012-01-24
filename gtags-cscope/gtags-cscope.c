@@ -44,6 +44,7 @@
 /* for libutil */
 #include "env.h"
 #include "gparam.h"
+#include "path.h"
 #include "test.h"
 #include "version.h"
 /* usage */
@@ -77,7 +78,7 @@
 #define LINEFLAG "+%s"	/* default: used by vi and emacs */
 #define TMPDIR	"/tmp"
 
-static char const rcsid[] = "$Id: gtags-cscope.c,v 1.25 2012/01/16 09:19:51 shigio Exp $";
+static char const rcsid[] = "$Id: gtags-cscope.c,v 1.26 2012/01/24 13:35:52 shigio Exp $";
 
 char	*editor, *shell, *lineflag;	/* environment variables */
 char	*global_command;	/* "global" by default */
@@ -397,7 +398,7 @@ cscope: Could not create private temp dir %s\n",
     /* if the cross-reference is to be considered up-to-date */
     if (isuptodate == YES) {
 	char com[80];
-	snprintf(com, sizeof(com), "%s -p >/dev/null", global_command);
+	snprintf(com, sizeof(com), "%s -p >" NULL_DEVICE, global_command);
 	if (system(com) != 0) {
 	    postfatal("gtags-cscope: GTAGS not found. Please invoke again without -d option.\n");
             /* NOTREACHED */
