@@ -58,11 +58,12 @@
 # include <io.h>		/* for setmode() */
 #endif
 
-static char const rcsid[] = "$Id: mypopen.c,v 1.2 2011/05/18 07:54:28 shigio Exp $";
+static char const rcsid[] = "$Id: mypopen.c,v 1.3 2012/10/13 07:02:07 shigio Exp $";
 
 static pid_t popen_pid[20];
 static RETSIGTYPE (*tstat)(int);
 
+/** opens a file descriptor and then sets close-on-exec for the file */
 int
 myopen(char *path, int flag, int mode)
 {
@@ -104,6 +105,7 @@ myopen(char *path, int flag, int mode)
 	}
 }
 
+/** opens a file pointer and then sets close-on-exec for the file */
 FILE *
 myfopen(char *path, char *mode)
 {

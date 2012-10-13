@@ -30,9 +30,11 @@
  DAMAGE. 
  =========================================================================*/
 
-/* get a file's base name from its path name */
+/** @file
+ *	get a file's base name from its path name
+ */
 
-static char const rcsid[] = "$Id: basename.c,v 1.1 2011/03/15 03:29:56 shigio Exp $";
+static char const rcsid[] = "$Id: basename.c,v 1.2 2012/10/13 07:01:58 shigio Exp $";
 
 #include "global-cscope.h"
 

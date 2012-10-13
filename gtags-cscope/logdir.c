@@ -30,11 +30,11 @@
  DAMAGE. 
  =========================================================================*/
 
-/*
+/** @file
  *	logdir()
  *
- *	This routine does not use the getpwent(3) library routine
- *	because the latter uses the stdio package.  The allocation of
+ *	This routine does not use the @XREF{getpwent,3} library routine
+ *	because the latter uses the @NAME{stdio} package.  The allocation of
  *	storage in this package destroys the integrity of the shell's
  *	storage allocation.
  */
@@ -45,7 +45,7 @@
 
 #define	OURBUFSIZ	160	/* renamed: avoid conflict with <stdio.h> */
 
-static char const rcsid[] = "$Id: logdir.c,v 1.1 2011/03/15 03:29:56 shigio Exp $";
+static char const rcsid[] = "$Id: logdir.c,v 1.2 2012/10/13 07:02:07 shigio Exp $";
 
 static char line[OURBUFSIZ+1];
 

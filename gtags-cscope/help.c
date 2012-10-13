@@ -30,9 +30,10 @@
  DAMAGE. 
  =========================================================================*/
 
-/*	cscope - interactive C symbol cross-reference
- *
+/** @file
  *	display help
+ *
+ *	cscope - interactive C symbol cross-reference
  *
  */
 
@@ -42,13 +43,13 @@
 #else
 #include <curses.h>
 #endif
-/*
+/**
 	max num of lines of help screen -
 	this number needs to be increased if more than n help items are needed
 */
 #define MAXHELP	50	/* maximum number of help strings */
 
-static char const rcsid[] = "$Id: help.c,v 1.2 2011/08/08 11:21:44 shigio Exp $";
+static char const rcsid[] = "$Id: help.c,v 1.3 2012/10/13 07:02:06 shigio Exp $";
 
 void
 help(void)

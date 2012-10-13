@@ -30,18 +30,24 @@
  DAMAGE. 
  =========================================================================*/
 
-/* $Id: version-cscope.h,v 1.2 2011/04/11 04:23:11 shigio Exp $ */
+/* $Id: version-cscope.h,v 1.3 2012/10/13 07:02:07 shigio Exp $ */
 
-/*	cscope - interactive C symbol cross-reference
+/** @file
+ *	version-cscope.h
  *
- *	Changing the cross-reference file part of the program version
+ *	cscope - interactive C symbol cross-reference
+ *
+ *	@note Changing the cross-reference file part of the program version
  *	forces rebuilding of the cross-reference.
  */
 
 #ifndef CSCOPE_VERSION_H
 #define CSCOPE_VERSION_H
 
-#define	FILEVERSION	15	/* Initial Open Source and Linux Port */
-#define	FIXVERSION	".7a"	/* feature and bug fix version */
+/** Initial Open Source and Linux Port */
+#define	FILEVERSION	15
+
+/** feature and bug fix version */
+#define	FIXVERSION	".7a"
 
 #endif /* CSCOPE_VERSION_H */

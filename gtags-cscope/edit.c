@@ -30,9 +30,10 @@
  DAMAGE. 
  =========================================================================*/
 
-/*	cscope - interactive C symbol cross-reference
- *
+/** @file
  *	file editing functions
+ *
+ *	cscope - interactive C symbol cross-reference
  */
 
 #include "global-cscope.h"
@@ -44,9 +45,9 @@
 #include "path.h"
 #include "pathconvert.h"
 
-static char const rcsid[] = "$Id: edit.c,v 1.4 2012/01/24 13:35:52 shigio Exp $";
+static char const rcsid[] = "$Id: edit.c,v 1.5 2012/10/13 07:02:00 shigio Exp $";
 
-/* edit this displayed reference */
+/** edit this displayed reference */
 
 void
 editref(int i)
@@ -68,7 +69,7 @@ editref(int i)
 	seekline(topline);	/* restore the line pointer */
 }
 
-/* edit all references */
+/** edit all references */
 
 void
 editall(void)
@@ -97,7 +98,7 @@ editall(void)
 	seekline(topline);
 }
 	
-/* call the editor */
+/** call the editor */
 
 void
 edit(char *file, char *linenum)
@@ -129,7 +130,7 @@ edit(char *file, char *linenum)
 	clear();	/* redisplay screen */
 }
 
-/* if requested, prepend a path to a relative file name */
+/** if requested, prepend a path to a relative file name */
 
 char *
 filepath(char *file)
