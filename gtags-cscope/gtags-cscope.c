@@ -88,7 +88,7 @@
 #define TMPDIR	"/tmp"
 /** @} */
 
-static char const rcsid[] = "$Id: gtags-cscope.c,v 1.27 2012/10/13 07:02:06 shigio Exp $";
+static char const rcsid[] = "$Id: gtags-cscope.c,v 1.28 2013/03/08 01:07:27 shigio Exp $";
 
 char	*editor, *shell, *lineflag;	/**< environment variables */
 char	*global_command;	/**< @FILE{global} by default */
@@ -424,8 +424,6 @@ cscope: Could not create private temp dir %s\n",
 	if (buildonly == YES) {
 	    myexit(0);
 	}
-	set_env("GTAGSROOT", getcwd(buf, sizeof(buf)));
-	set_env("GTAGSDBPATH", getcwd(buf, sizeof(buf)));
     }
 
     /* opendatabase(); */
