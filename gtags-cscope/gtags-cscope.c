@@ -88,7 +88,7 @@
 #define TMPDIR	"/tmp"
 /** @} */
 
-static char const rcsid[] = "$Id: gtags-cscope.c,v 1.28 2013/03/08 01:07:27 shigio Exp $";
+static char const rcsid[] = "$Id: gtags-cscope.c,v 1.29 2013/03/13 11:42:25 h-iwamoto Exp $";
 
 char	*editor, *shell, *lineflag;	/**< environment variables */
 char	*global_command;	/**< @FILE{global} by default */
@@ -414,8 +414,6 @@ cscope: Could not create private temp dir %s\n",
             /* NOTREACHED */
 	}
     } else {
-	char buf[MAXPATHLEN];
-
 	if (linemode == NO || verbosemode == YES)    /* display if verbose as well */
 	    postmsg("Building cross-reference...");                 
 	rebuild();
