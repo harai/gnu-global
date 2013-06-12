@@ -45,7 +45,7 @@
 #include "path.h"
 #include "pathconvert.h"
 
-static char const rcsid[] = "$Id: edit.c,v 1.5 2012/10/13 07:02:00 shigio Exp $";
+static char const rcsid[] = "$Id: edit.c,v 1.6 2013/06/12 08:06:25 shigio Exp $";
 
 /** edit this displayed reference */
 
@@ -120,12 +120,10 @@ edit(char *file, char *linenum)
 		(void) execute(editor, editor, plusnum, file, NULL_DEVICE, NULL);
 	}
 	else if (lineflagafterfile) {
-		(void) snprintf(com, sizeof(com), "%s %s \"%s\"", editor, file, plusnum);
-		system(com);
+		(void) execute(editor, editor, file, plusnum, NULL);
 	}
 	else {
-		(void) snprintf(com, sizeof(com), "%s %s \"%s\"", editor, plusnum, file);
-		system(com);
+		(void) execute(editor, editor, plusnum, file, NULL);
 	}
 	clear();	/* redisplay screen */
 }
