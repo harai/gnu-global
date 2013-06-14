@@ -45,7 +45,7 @@
 #include "path.h"
 #include "pathconvert.h"
 
-static char const rcsid[] = "$Id: edit.c,v 1.6 2013/06/12 08:06:25 shigio Exp $";
+static char const rcsid[] = "$Id: edit.c,v 1.7 2013/06/14 09:35:21 h-iwamoto Exp $";
 
 /** edit this displayed reference */
 
@@ -103,7 +103,6 @@ editall(void)
 void
 edit(char *file, char *linenum)
 {
-	char	com[PATHLEN + 81];
 	char	msg[MSGLEN + 1];	/* message */
 	char	plusnum[NUMLEN + 20];	/* line number option: allow space for wordy line# flag */
 	char	*s;
