@@ -10,7 +10,7 @@
  *   http://www.opensource.org/licenses/mit-license.php
  *   http://www.gnu.org/licenses/gpl.html
  *
- * Revision: $Id: jquery.treeview.js,v 1.1 2010/07/13 04:57:42 shigio Exp $
+ * Revision: $Id: jquery.treeview.js,v 1.2 2013/07/01 05:32:49 shigio Exp $
  *
  */
 
@@ -63,9 +63,12 @@
 			return this.filter(":has(>ul)");
 		},
 		applyClasses: function(settings, toggler) {
-			this.filter(":has(>ul):not(:has(>a))").find(">span").click(function(event) {
-				toggler.apply($(this).next());
-			}).add( $("a", this) ).hoverClass();
+			//
+			// Removed because it uses time for trifles too much. (2013/7/1)
+			//
+			//this.filter(":has(>ul):not(:has(>a))").find(">span").click(function(event) {
+			//	toggler.apply($(this).next());
+			//}).add( $("a", this) ).hoverClass();
 			
 			if (!settings.prerendered) {
 				// handle closed ones first
