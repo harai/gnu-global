@@ -88,7 +88,7 @@
 #define TMPDIR	"/tmp"
 /** @} */
 
-static char const rcsid[] = "$Id: gtags-cscope.c,v 1.29 2013/03/13 11:42:25 h-iwamoto Exp $";
+static char const rcsid[] = "$Id: gtags-cscope.c,v 1.30 2013/11/16 01:39:29 shigio Exp $";
 
 char	*editor, *shell, *lineflag;	/**< environment variables */
 char	*global_command;	/**< @FILE{global} by default */
@@ -253,7 +253,7 @@ gtags-cscope: pattern too long, cannot be > %d characters\n", PATLEN);
 		break;
 	    case 'f':	/* alternate cross-reference file */
 	    case 'F':	/* symbol reference lines file */
-/*	    case 'i':	/* file containing file names */
+/*	    case 'i':	   file containing file names */
 	    case 'I':	/* #include file directory */
 	    case 'p':	/* file path components to display */
 	    case 'P':	/* prepend path to file names */
