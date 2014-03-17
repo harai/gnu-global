@@ -43,9 +43,9 @@
 #include <curses.h>
 #endif
 #include "path.h"
-#include "pathconvert.h"
+#include "encodepath.h"
 
-static char const rcsid[] = "$Id: edit.c,v 1.7 2013/06/14 09:35:21 h-iwamoto Exp $";
+static char const rcsid[] = "$Id: edit.c,v 1.8 2014/03/17 06:46:06 shigio Exp $";
 
 /** edit this displayed reference */
 

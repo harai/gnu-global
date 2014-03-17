@@ -38,9 +38,9 @@
 
 #include "global-cscope.h"
 #include "gparam.h"
-#include "pathconvert.h"
 #include "build.h"		/* for rebuild() */
 #include "alloc.h"
+#include "encodepath.h"
 
 #include <stdlib.h>
 #if defined(USE_NCURSES) && !defined(RENAMED_NCURSES)
@@ -50,7 +50,7 @@
 #endif
 #include <ctype.h>
 
-static char const rcsid[] = "$Id: command.c,v 1.9 2012/10/13 07:01:58 shigio Exp $";
+static char const rcsid[] = "$Id: command.c,v 1.10 2014/03/17 06:46:06 shigio Exp $";
 
 
 int	selecting;
