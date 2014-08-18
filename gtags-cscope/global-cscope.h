@@ -30,7 +30,7 @@
  DAMAGE. 
  =========================================================================*/
 
-/* $Id: global-cscope.h,v 1.4 2012/10/13 07:02:06 shigio Exp $ */
+/* $Id: global-cscope.h,v 1.5 2014/08/18 09:07:45 shigio Exp $ */
 
 /** @file
  *	global type, data, and function definitions
@@ -334,7 +334,7 @@ void	setfield(void);
 void	shellpath(char *out, int limit, char *in);
 void    sourcedir(char *dirlist);
 void	myungetch(int c);
-void	warning(char *text);
+/* void	warning(char *text); */
 void	writestring(char *s);
 
 BOOL	command(int commandc);
