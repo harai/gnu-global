@@ -56,7 +56,7 @@
 #define HAVE_FORK 1
 #endif
 
-static char const rcsid[] = "$Id: exec.c,v 1.3 2012/10/13 07:02:04 shigio Exp $";
+static char const rcsid[] = "$Id: exec.c,v 1.4 2014/11/27 08:21:10 shigio Exp $";
 
 static	sighandler_t oldsigquit; /**< old value of quit signal */
 static	sighandler_t oldsighup; /**< old value of hangup signal */
@@ -91,7 +91,7 @@ execute(char *a, ...)	/* note: "exec" is already defined on u370 */
 #if !HAVE_FORK
 	/* HBB 20010313: in MSDOG, everything is completely different.
 	 * No fork()/exec()/wait(), but rather a single libc call: */
-        exitcode = spawnvp(P_WAIT, a, argv);
+	exitcode = spawnvp(P_WAIT, a, (const char* const*)argv);
 #else
 	if ((p = myfork()) == 0) {
 		myexecvp(a, argv);	/* child */
